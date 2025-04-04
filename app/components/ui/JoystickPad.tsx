@@ -15,10 +15,9 @@ const JoystickPad = () => {
       let offsetX = e.clientX - centerX;
       let offsetY = e.clientY - centerY;
 
-      const maxRadius = rect.width / 2 - 16; // 16 = inner circle radius
+      const maxRadius = rect.width / 2 - 16; 
       const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
 
-      // Clamp to edge
       if (distance > maxRadius) {
         const angle = Math.atan2(offsetY, offsetX);
         offsetX = Math.cos(angle) * maxRadius;
@@ -29,7 +28,7 @@ const JoystickPad = () => {
     };
 
     const handleMouseUp = () => {
-      setPosition({ x: 0, y: 0 }); // Snap back to center
+      setPosition({ x: 0, y: 0 }); 
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
     };
