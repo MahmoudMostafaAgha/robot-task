@@ -32,7 +32,8 @@ export default function Topbar({ metrics }: { metrics: Metric[] }) {
             <div key={label}>
               <p className="text-sm font-semibold">{label}</p>
               <p className="text-gray-700">
-                {value} {unit}
+                <span className="font-semibold">{label}: </span>
+                {value} {unit} 
               </p>
             </div>
           ))}
