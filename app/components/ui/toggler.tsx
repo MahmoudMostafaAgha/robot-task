@@ -20,16 +20,15 @@ type TogglerProps = {
   direction?: "row" | "col";
   itemsAlign?: "start" | "center" | "end";
   buttonVariant?: "default" | "outline" | "danger";
-
 };
 
 const Toggler: React.FC<TogglerProps> = ({
   name,
   options,
   defaultValue,
-  direction = "row", 
+  direction = "row",
   itemsAlign = "start",
-  buttonVariant = "default", 
+  buttonVariant = "default",
 }) => {
   const { toggles, setToggle } = useToggleStore();
   const selected = toggles[name];
@@ -52,7 +51,7 @@ const Toggler: React.FC<TogglerProps> = ({
       className={cn(
         "flex gap-2 flex-wrap",
         direction === "col" ? "flex-col" : "flex-row",
-        itemsAlign === "end" && "justify-end",
+        itemsAlign === "end" && "justify-end"
       )}
     >
       {options.map((opt, index) => {
@@ -69,13 +68,19 @@ const Toggler: React.FC<TogglerProps> = ({
             onClick={() => handleClick(value ?? "")}
             className={cn(
               "px-4 py-2 w-fit rounded-md text-sm font-medium border flex flex-col items-center justify-center text-center min-w-[80px]",
-              buttonVariant === "default" && isSelected && "bg-blue-500 text-white border-blue-500",
-              buttonVariant === "outline" && isSelected && "bg-blue-100 text-blue-500 border-blue-500",
-              buttonVariant === "outline" && !isSelected && "bg-transparent text-blue-500 border-blue-500 hover:bg-blue-50",
-              (!isSelected && buttonVariant !== "outline") && "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
+              buttonVariant === "default" &&
+                isSelected &&
+                "bg-blue-500 text-white border-blue-500",
+              buttonVariant === "outline" &&
+                isSelected &&
+                "bg-blue-100 text-blue-500 border-blue-500",
+              buttonVariant === "outline" &&
+                !isSelected &&
+                "bg-transparent text-blue-500 border-blue-500 hover:bg-blue-50",
+              !isSelected &&
+                buttonVariant !== "outline" &&
+                "bg-white text-gray-800 border-gray-300 hover:bg-gray-100"
             )}
-            
-            
             variant={buttonVariant}
             aria-selected={isSelected}
             role="button"

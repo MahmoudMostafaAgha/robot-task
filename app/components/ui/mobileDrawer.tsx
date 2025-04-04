@@ -1,5 +1,5 @@
 import React from "react";
-import {  X } from "lucide-react";
+import { X } from "lucide-react";
 
 type MobileDrawerProps = {
   isOpen: boolean;
@@ -7,7 +7,11 @@ type MobileDrawerProps = {
   children: React.ReactNode;
 };
 
-const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose, children }) => {
+const MobileDrawer: React.FC<MobileDrawerProps> = ({
+  isOpen,
+  onClose,
+  children,
+}) => {
   return (
     <div
       className={`fixed inset-0 z-50 transition-transform duration-300 md:hidden ${
@@ -23,19 +27,14 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose, children }
 
       {/* Drawer panel */}
       <div className="absolute left-0 top-0 h-full w-3/4 bg-white shadow-lg p-4 overflow-y-auto">
-        {/* Burger-style close button (absolute, top-right inside panel) */}
         <button
-                  onClick={onClose}
-                  className="text-black"
+          onClick={onClose}
+          className="text-black"
           aria-label="Close drawer"
         >
           <X className="w-6 h-6" />
         </button>
-
-        {/* Content */}
-        <div className="mt-10">
-          {children}
-        </div>
+        <div className="mt-10">{children}</div>
       </div>
     </div>
   );

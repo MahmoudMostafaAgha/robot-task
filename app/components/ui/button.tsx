@@ -5,12 +5,17 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "default" | "outline" | "danger" | "primary";
 };
 
-const Button: React.FC<ButtonProps> = ({ children, variant = "default", className, ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = "default",
+  className,
+  ...props
+}) => {
   const variants = {
     default: "bg-blue-500 hover:bg-blue-600 text-white",
     outline: "border border-blue-500 text-blue-500 hover:bg-blue-100",
-      danger: "bg-red-500 hover:bg-red-600 text-white",
-      primary: "bg-green-500 hover:bg-green-600 text-white",
+    danger: "bg-red-500 hover:bg-red-600 text-white",
+    primary: "bg-green-500 hover:bg-green-600 text-white",
   };
 
   return (

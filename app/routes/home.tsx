@@ -22,7 +22,6 @@ const metrics = [
   { label: "Uptime", value: "1h 14m" },
 ];
 export default function Home() {
-
   return (
     <div className="flex flex-col h-screen">
       <Topbar metrics={metrics} />
@@ -30,4 +29,3 @@ export default function Home() {
     </div>
   );
 }
-
